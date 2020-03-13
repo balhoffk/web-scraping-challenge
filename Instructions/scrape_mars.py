@@ -180,13 +180,14 @@ def mars_scrape():
 
 
 # Find `Mars Weather` tweet
-    mars_weather_tweet = weather.find('div', attrs={"class": "tweet", "data-name": "Mars Weather"})
+    mars_weather_tweet = weather.find_all('span')
 
 
 # In[161]:
 
 
 #Save as Mars Weather
+    mars_weather_soup = mars_weather_tweet.find('span', attrs={"class": "css-901oao css-16my406 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutc0"})
     mars_weather = mars_weather_tweet.find_all('tweet','').get_text()
     mars_weather
     scrape['weather'] = mars_weather
